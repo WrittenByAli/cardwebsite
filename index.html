@@ -137,11 +137,17 @@
 
 
   <!-- ============================================================
-       FOOTER: Newsletter + Social Media Icons
+       FOOTER: Newsletter + Social Media Icons + Ko-Fi Button
        TO UPDATE:
          - Change the newsletter text between the <p> tags.
-         - Replace the # in the social icon <a href="#"> with your real profile URLs.
-         - Replace icon letters (f / i / p) with real SVG icons or Font Awesome if desired.
+         - Replace href="#" on Facebook/Instagram with your real profile URLs.
+             Facebook example:  href="https://www.facebook.com/PrettyPennyDesigns"
+             Instagram example: href="https://www.instagram.com/PrettyPennyDesigns"
+         - Ko-Fi: TWO methods are provided below. Only ONE should be active at a time.
+             METHOD 1 (Script/Widget) is active by default.
+             METHOD 2 (Image Button) is commented out as a fallback.
+             If the script method does not display correctly, comment out Method 1
+             and remove the comment tags around Method 2.
        ============================================================ -->
   <footer class="site-footer">
 
@@ -172,12 +178,13 @@
       </div>
       <!-- End Newsletter Wrap -->
 
-      <!-- Social Media Icons -->
+      <!-- Social Media Icons + Ko-Fi -->
       <div class="social-icons">
 
         <!-- ============================================================
              SOCIAL MEDIA ICON – FACEBOOK
              TO UPDATE: Replace href="#" with your Facebook page URL.
+             Example: href="https://www.facebook.com/PrettyPennyDesigns"
              ============================================================ -->
         <a href="#" class="social-icon" aria-label="Facebook">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
@@ -189,6 +196,7 @@
         <!-- ============================================================
              SOCIAL MEDIA ICON – INSTAGRAM
              TO UPDATE: Replace href="#" with your Instagram profile URL.
+             Example: href="https://www.instagram.com/PrettyPennyDesigns"
              ============================================================ -->
         <a href="#" class="social-icon" aria-label="Instagram">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
@@ -200,15 +208,44 @@
         <!-- END INSTAGRAM ICON -->
 
         <!-- ============================================================
-             SOCIAL MEDIA ICON – PINTEREST
-             TO UPDATE: Replace href="#" with your Pinterest profile URL.
+             KO-FI BUTTON – METHOD 1: Script/Widget (PRIMARY – active by default)
+             The script is loaded invisibly; the styled anchor below is what
+             visitors see and click — it matches the Facebook/Instagram circle
+             icon style. The hidden script registers the Ko-Fi widget correctly.
+             If this method does not display correctly on your site, comment out
+             this entire METHOD 1 block and use METHOD 2 (image button) below.
              ============================================================ -->
-        <a href="#" class="social-icon" aria-label="Pinterest">
+        <div class="kofi-widget-wrap">
+          <!-- Hidden script – loads Ko-Fi widget functionality -->
+          <div class="kofi-script-hidden">
+            <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+            <script type='text/javascript'>kofiwidget2.init('Visit my Ko-fi shop', '#81a1d0', 'F1F7197B6Y');kofiwidget2.draw();</script>
+          </div>
+          <!-- Styled anchor – matches Facebook/Instagram circle icon style -->
+          <a href='https://ko-fi.com/F1F7197B6Y' target='_blank' class="social-icon kofi-icon" aria-label="Ko-Fi shop">
+            <!-- Ko-Fi cup SVG icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+              <path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 2.318.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/>
+            </svg>
+          </a>
+        </div>
+        <!-- END KO-FI METHOD 1 -->
+
+        <!-- ============================================================
+             KO-FI BUTTON – METHOD 2: Image Button (FALLBACK – commented out)
+             The Ko-Fi image is also wrapped in the matching circle icon style
+             so it stays consistent with the Facebook/Instagram buttons.
+             To activate: remove the comment tags around this block
+             AND comment out the METHOD 1 block above.
+             ============================================================ -->
+        <!--
+        <a href='https://ko-fi.com/F1F7197B6Y' target='_blank' class="social-icon kofi-icon" aria-label="Ko-Fi shop">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.853 0 1.267.64 1.267 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.772 0 3.137-1.868 3.137-4.563 0-2.387-1.716-4.055-4.165-4.055-2.836 0-4.5 2.127-4.5 4.326 0 .856.33 1.775.741 2.276a.3.3 0 0 1 .069.286c-.076.313-.244.995-.277 1.134-.044.183-.146.222-.337.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.938.29 1.931.446 2.962.446 5.522 0 10-4.477 10-10S17.522 2 12 2z"/>
+            <path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 2.318.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.70s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/>
           </svg>
         </a>
-        <!-- END PINTEREST ICON -->
+        -->
+        <!-- END KO-FI METHOD 2 -->
 
       </div>
       <!-- End Social Icons -->

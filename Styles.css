@@ -91,7 +91,7 @@ a {
 .nav-list {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;          /* wraps gracefully on small screens */
+  flex-wrap: wrap;
   justify-content: center;
   max-width: 1080px;
   margin: 0 auto;
@@ -100,8 +100,8 @@ a {
 
 .nav-list li {
   border: 2px solid var(--nav-border);
-  /* Slight negative margin collapses double borders between items */
   margin: 6px 3px;
+  transition: border-color 0.3s ease;
 }
 
 .nav-link {
@@ -113,12 +113,19 @@ a {
   color: var(--pink);
   letter-spacing: 0.03em;
   white-space: nowrap;
+  transition: color 0.3s ease;
 }
 
+/* Only text color changes on hover/active – no background fill */
 .nav-link:hover,
 .nav-link.active {
   color: var(--blue);
-  background-color: var(--pink-light);
+  background-color: transparent;
+}
+
+/* Border also turns blue on hover */
+.nav-list li:hover {
+  border-color: var(--blue);
 }
 
 
@@ -137,16 +144,15 @@ a {
 
 /* ---- LEFT COLUMN ---- */
 .hero-left {
-  flex: 1 1 50%;            /* takes up ~50% of the row */
+  flex: 1 1 50%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Headline box with subtle left border accent */
 .headline-box {
-  border-left: 4px solid var(--blue);
-  padding-left: 16px;
+  border-left: none;
+  padding-left: 0;
 }
 
 .main-headline {
@@ -157,18 +163,14 @@ a {
   line-height: 1.4;
 }
 
-/* Tagline image – keep proportional */
-.tagline-wrap {
-  /* No fixed height so the image scales naturally */
-}
-
+/* Tagline image – keeps proportional */
 .tagline-img {
-  max-width: 320px;         /* prevent it from being too wide */
+  max-width: 320px;
   width: 100%;
   height: auto;
 }
 
-/* Plain-text tagline fallback (used if you remove the image) */
+/* Plain-text tagline fallback (used if you remove the tagline image) */
 .tagline-text {
   font-family: var(--font-script);
   font-size: 1.7rem;
@@ -189,7 +191,7 @@ a {
 
 /* ---- RIGHT COLUMN ---- */
 .hero-right {
-  flex: 1 1 50%;            /* takes up ~50% of the row */
+  flex: 1 1 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -259,14 +261,18 @@ a {
   border-color: var(--pink-light);
 }
 
-/* Social Media Icons Row */
+/* ----------------------------------------------------------------
+   SOCIAL ICONS ROW (Facebook, Instagram, Ko-Fi)
+   ---------------------------------------------------------------- */
 .social-icons {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
+  flex-wrap: wrap;    /* wraps neatly on small screens */
 }
 
+/* Circle icon buttons (Facebook & Instagram) */
 .social-icon {
   display: flex;
   align-items: center;
@@ -277,14 +283,38 @@ a {
   color: var(--pink);
   border-radius: 50%;
   border: 2px solid var(--white);
-  font-weight: 900;
-  font-size: 1rem;
 }
 
 .social-icon:hover {
   background-color: var(--pink-light);
   color: var(--pink);
   border-color: var(--pink-light);
+}
+
+/* ----------------------------------------------------------------
+   KO-FI – BOTH METHODS
+   The Ko-Fi icon uses the same circle style as Facebook/Instagram.
+   The .kofi-icon class is applied to the <a> tag in both methods,
+   so the button looks identical to the other social icons.
+   ---------------------------------------------------------------- */
+
+/* Wrapper for Method 1 – aligns with the icon row */
+.kofi-widget-wrap {
+  display: flex;
+  align-items: center;
+}
+
+/* Hides the Ko-Fi script widget output (Method 1 only).
+   The styled anchor below it is what visitors actually see. */
+.kofi-script-hidden {
+  display: none;
+}
+
+/* Ko-Fi circle icon – inherits the same base style as .social-icon.
+   Added as a second class (class="social-icon kofi-icon") so hover
+   and sizing rules are shared automatically. No extra overrides needed. */
+.kofi-icon {
+  /* intentionally empty – all styles come from .social-icon */
 }
 
 
@@ -309,7 +339,7 @@ a {
   }
 
   .hero-card-img {
-    max-width: 100%;       /* image fills full width on mobile */
+    max-width: 100%;
   }
 
   .tagline-img {
@@ -344,5 +374,11 @@ a {
   .subscribe-btn {
     padding: 10px 24px;
     font-size: 0.85rem;
+  }
+
+  /* On very small screens, stack social icons and Ko-Fi button */
+  .social-icons {
+    flex-direction: column;
+    gap: 12px;
   }
 }
