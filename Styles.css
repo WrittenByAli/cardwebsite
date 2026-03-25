@@ -1,0 +1,348 @@
+/* ================================================================
+   PRETTY PENNY DESIGNS – styles.css
+   Brand Colors: Pink = #ef80af | Blue = #81a1d0
+   Fonts: Dancing Script (headings/cursive) | Lato (body text)
+
+   HOW TO USE:
+   - This file must be in the SAME FOLDER as your index.html file.
+   - Your images must be inside a subfolder called "images/"
+   - To change colors site-wide, edit the variables under :root below.
+   ================================================================ */
+
+
+/* ----------------------------------------------------------------
+   CSS CUSTOM PROPERTIES (easy brand color editing)
+   ---------------------------------------------------------------- */
+:root {
+  --pink:        #ef80af;
+  --pink-light:  #fce8f1;
+  --pink-pale:   #fff5f9;
+  --blue:        #81a1d0;
+  --blue-light:  #dce8f7;
+  --white:       #ffffff;
+  --text-dark:   #3a3a3a;
+  --text-mid:    #5a5a5a;
+  --nav-border:  #81a1d0;
+  --font-script: 'Dancing Script', cursive;
+  --font-body:   'Lato', sans-serif;
+}
+
+
+/* ----------------------------------------------------------------
+   GLOBAL RESET & BASE STYLES
+   ---------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background-color: var(--white);
+  line-height: 1.65;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* ================================================================
+   HEADER
+   ================================================================ */
+.site-header {
+  width: 100%;
+  background-color: var(--white);
+  border-bottom: 2px solid var(--blue-light);
+}
+
+/* The header image spans full width and scales on mobile */
+.header-img {
+  width: 100%;
+  max-width: 1080px;
+  height: auto;
+  margin: 0 auto;       /* centered on wide screens */
+  display: block;
+}
+
+
+/* ================================================================
+   NAVIGATION BAR
+   ================================================================ */
+.main-nav {
+  width: 100%;
+  background-color: var(--white);
+  border-bottom: 2px solid var(--blue-light);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;          /* wraps gracefully on small screens */
+  justify-content: center;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.nav-list li {
+  border: 2px solid var(--nav-border);
+  /* Slight negative margin collapses double borders between items */
+  margin: 6px 3px;
+}
+
+.nav-link {
+  display: block;
+  padding: 12px 22px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--pink);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--blue);
+  background-color: var(--pink-light);
+}
+
+
+/* ================================================================
+   HERO SECTION (Two-Column Layout)
+   ================================================================ */
+.hero-section {
+  display: flex;
+  flex-direction: row;      /* side-by-side on desktop */
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1080px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+/* ---- LEFT COLUMN ---- */
+.hero-left {
+  flex: 1 1 50%;            /* takes up ~50% of the row */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Headline box with subtle left border accent */
+.headline-box {
+  border-left: 4px solid var(--blue);
+  padding-left: 16px;
+}
+
+.main-headline {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--blue);
+  line-height: 1.4;
+}
+
+/* Tagline image – keep proportional */
+.tagline-wrap {
+  /* No fixed height so the image scales naturally */
+}
+
+.tagline-img {
+  max-width: 320px;         /* prevent it from being too wide */
+  width: 100%;
+  height: auto;
+}
+
+/* Plain-text tagline fallback (used if you remove the image) */
+.tagline-text {
+  font-family: var(--font-script);
+  font-size: 1.7rem;
+  color: var(--pink);
+  line-height: 1.3;
+}
+
+/* Body paragraphs */
+.intro-text {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.7;
+  max-width: 520px;
+  border: 1px solid #e0e0e0;
+  padding: 14px 16px;
+  background-color: var(--white);
+}
+
+/* ---- RIGHT COLUMN ---- */
+.hero-right {
+  flex: 1 1 50%;            /* takes up ~50% of the row */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Featured envelope/card image */
+.hero-card-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+.site-footer {
+  background-color: var(--pink);
+  padding: 28px 24px;
+  margin-top: 48px;
+}
+
+.footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+/* Newsletter text + subscribe button grouped together */
+.newsletter-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.newsletter-text {
+  font-size: 0.95rem;
+  color: var(--white);
+  max-width: 680px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Subscribe Button */
+.subscribe-btn {
+  display: inline-block;
+  background-color: var(--white);
+  color: var(--pink);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 10px 32px;
+  border: 2px solid var(--white);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.subscribe-btn:hover {
+  background-color: var(--pink-light);
+  color: var(--pink);
+  border-color: var(--pink-light);
+}
+
+/* Social Media Icons Row */
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background-color: var(--white);
+  color: var(--pink);
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+.social-icon:hover {
+  background-color: var(--pink-light);
+  color: var(--pink);
+  border-color: var(--pink-light);
+}
+
+
+/* ================================================================
+   RESPONSIVE BREAKPOINTS
+   ================================================================ */
+
+/* ---- Tablet (up to 768px) ---- */
+@media (max-width: 768px) {
+
+  /* Stack hero columns vertically: text first, then image */
+  .hero-section {
+    flex-direction: column;
+    gap: 28px;
+    margin: 28px auto;
+  }
+
+  .hero-left,
+  .hero-right {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .hero-card-img {
+    max-width: 100%;       /* image fills full width on mobile */
+  }
+
+  .tagline-img {
+    max-width: 260px;
+  }
+
+  .main-headline {
+    font-size: 1.1rem;
+  }
+}
+
+/* ---- Mobile (up to 480px) ---- */
+@media (max-width: 480px) {
+
+  .nav-link {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .main-headline {
+    font-size: 1rem;
+  }
+
+  .intro-text {
+    font-size: 0.88rem;
+  }
+
+  .newsletter-text {
+    font-size: 0.88rem;
+  }
+
+  .subscribe-btn {
+    padding: 10px 24px;
+    font-size: 0.85rem;
+  }
+}
