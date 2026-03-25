@@ -266,10 +266,11 @@ a {
    ---------------------------------------------------------------- */
 .social-icons {
   display: flex;
+  flex-direction: row; /* Forces items to sit side-by-side */
   align-items: center;
   justify-content: center;
   gap: 16px;
-  flex-wrap: wrap;    /* wraps neatly on small screens */
+  flex-wrap: nowrap;   /* Prevents wrapping/stacking on small screens */
 }
 
 /* Circle icon buttons (Facebook & Instagram) */
@@ -283,6 +284,7 @@ a {
   color: var(--pink);
   border-radius: 50%;
   border: 2px solid var(--white);
+  transition: all 0.3s ease;
 }
 
 .social-icon:hover {
@@ -292,31 +294,14 @@ a {
 }
 
 /* ----------------------------------------------------------------
-   KO-FI – BOTH METHODS
-   The Ko-Fi icon uses the same circle style as Facebook/Instagram.
-   The .kofi-icon class is applied to the <a> tag in both methods,
-   so the button looks identical to the other social icons.
+   KO-FI INTEGRATION (Blue Rectangle Widget)
    ---------------------------------------------------------------- */
-
-/* Wrapper for Method 1 – aligns with the icon row */
-.kofi-widget-wrap {
+/* Container aligns the rectangle widget vertically with the 42px circle icons */
+.kofi-btn-container {
   display: flex;
   align-items: center;
+  height: 42px; 
 }
-
-/* Hides the Ko-Fi script widget output (Method 1 only).
-   The styled anchor below it is what visitors actually see. */
-.kofi-script-hidden {
-  display: none;
-}
-
-/* Ko-Fi circle icon – inherits the same base style as .social-icon.
-   Added as a second class (class="social-icon kofi-icon") so hover
-   and sizing rules are shared automatically. No extra overrides needed. */
-.kofi-icon {
-  /* intentionally empty – all styles come from .social-icon */
-}
-
 
 /* ================================================================
    RESPONSIVE BREAKPOINTS
@@ -377,8 +362,16 @@ a {
   }
 
   /* On very small screens, stack social icons and Ko-Fi button */
-  .social-icons {
-    flex-direction: column;
-    gap: 12px;
+ .social-icons {
+    flex-wrap: wrap !important; /* Allows items to break to a new line */
+    gap: 16px;
+  }
+  
+  /* Force the Ko-Fi button to its own line and center it */
+  .kofi-btn-container {
+    flex-basis: 100%; /* Forces it to take the full width, dropping it down */
+    justify-content: center; /* Centers the button horizontally */
+    margin-top: 4px; /* Adds a tiny bit of breathing room above it */
+    transform: none; /* No need to shrink it now that it has its own line! */
   }
 }

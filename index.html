@@ -140,64 +140,35 @@
        FOOTER: Newsletter + Social Media Icons + Ko-Fi Button
        TO UPDATE:
          - Change the newsletter text between the <p> tags.
-         - Replace href="#" on Facebook/Instagram with your real profile URLs.
-             Facebook example:  href="https://www.facebook.com/PrettyPennyDesigns"
-             Instagram example: href="https://www.instagram.com/PrettyPennyDesigns"
-         - Ko-Fi: TWO methods are provided below. Only ONE should be active at a time.
-             METHOD 1 (Script/Widget) is active by default.
-             METHOD 2 (Image Button) is commented out as a fallback.
-             If the script method does not display correctly, comment out Method 1
-             and remove the comment tags around Method 2.
+         - Replace the # in the Facebook/Instagram <a href="#"> with your real profile URLs.
+         - For Ko-Fi: TWO OPTIONS are provided below.
+             OPTION 1 (Script button – preferred): Replace YOUR_KOFI_USERNAME with
+                       your Ko-Fi username (e.g. "pennypenny"). This loads the
+                       official Ko-Fi button automatically.
+             OPTION 2 (Image fallback): If the script doesn't load or display
+                       correctly, delete the OPTION 1 block and uncomment OPTION 2.
+                       Replace YOUR_KOFI_USERNAME in the href link as well.
        ============================================================ -->
   <footer class="site-footer">
-
     <div class="footer-inner">
 
-      <!-- Newsletter Text & Subscribe Button -->
       <div class="newsletter-wrap">
-
-        <!-- ============================================================
-             NEWSLETTER DESCRIPTION TEXT
-             TO UPDATE: Edit the sentence below.
-             ============================================================ -->
         <p class="newsletter-text">
           Join the Pretty Penny Designs newsletter for fresh card designs,
           creative holiday ideas, and a sprinkle of delightful reads delivered
           to your inbox!
         </p>
-        <!-- END NEWSLETTER DESCRIPTION TEXT -->
-
-        <!-- ============================================================
-             SUBSCRIBE BUTTON
-             TO UPDATE: Change href="#" to your newsletter signup page or
-             MailChimp/ConvertKit link.
-             ============================================================ -->
         <a href="#" class="subscribe-btn">Subscribe</a>
-        <!-- END SUBSCRIBE BUTTON -->
-
       </div>
-      <!-- End Newsletter Wrap -->
 
-      <!-- Social Media Icons + Ko-Fi -->
       <div class="social-icons">
 
-        <!-- ============================================================
-             SOCIAL MEDIA ICON – FACEBOOK
-             TO UPDATE: Replace href="#" with your Facebook page URL.
-             Example: href="https://www.facebook.com/PrettyPennyDesigns"
-             ============================================================ -->
         <a href="#" class="social-icon" aria-label="Facebook">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
           </svg>
         </a>
-        <!-- END FACEBOOK ICON -->
 
-        <!-- ============================================================
-             SOCIAL MEDIA ICON – INSTAGRAM
-             TO UPDATE: Replace href="#" with your Instagram profile URL.
-             Example: href="https://www.instagram.com/PrettyPennyDesigns"
-             ============================================================ -->
         <a href="#" class="social-icon" aria-label="Instagram">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -205,53 +176,15 @@
             <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
           </svg>
         </a>
-        <!-- END INSTAGRAM ICON -->
 
-        <!-- ============================================================
-             KO-FI BUTTON – METHOD 1: Script/Widget (PRIMARY – active by default)
-             The script is loaded invisibly; the styled anchor below is what
-             visitors see and click — it matches the Facebook/Instagram circle
-             icon style. The hidden script registers the Ko-Fi widget correctly.
-             If this method does not display correctly on your site, comment out
-             this entire METHOD 1 block and use METHOD 2 (image button) below.
-             ============================================================ -->
-        <div class="kofi-widget-wrap">
-          <!-- Hidden script – loads Ko-Fi widget functionality -->
-          <div class="kofi-script-hidden">
-            <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-            <script type='text/javascript'>kofiwidget2.init('Visit my Ko-fi shop', '#81a1d0', 'F1F7197B6Y');kofiwidget2.draw();</script>
+        <div class="kofi-btn-container">
+          
+          <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+          <script type='text/javascript'>kofiwidget2.init('Visit my Ko-fi shop', '#81a1d0', 'F1F7197B6Y');kofiwidget2.draw();</script> 
+
           </div>
-          <!-- Styled anchor – matches Facebook/Instagram circle icon style -->
-          <a href='https://ko-fi.com/F1F7197B6Y' target='_blank' class="social-icon kofi-icon" aria-label="Ko-Fi shop">
-            <!-- Ko-Fi cup SVG icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-              <path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 2.318.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/>
-            </svg>
-          </a>
-        </div>
-        <!-- END KO-FI METHOD 1 -->
-
-        <!-- ============================================================
-             KO-FI BUTTON – METHOD 2: Image Button (FALLBACK – commented out)
-             The Ko-Fi image is also wrapped in the matching circle icon style
-             so it stays consistent with the Facebook/Instagram buttons.
-             To activate: remove the comment tags around this block
-             AND comment out the METHOD 1 block above.
-             ============================================================ -->
-        <!--
-        <a href='https://ko-fi.com/F1F7197B6Y' target='_blank' class="social-icon kofi-icon" aria-label="Ko-Fi shop">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-            <path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 2.318.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.70s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/>
-          </svg>
-        </a>
-        -->
-        <!-- END KO-FI METHOD 2 -->
-
       </div>
-      <!-- End Social Icons -->
-
     </div>
-
   </footer>
   <!-- END FOOTER -->
 
